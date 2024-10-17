@@ -1,4 +1,4 @@
-package com.hibernate.lesson1;
+package com.hibernate.lesson_1;
 
 
 public class HibernateRunner {

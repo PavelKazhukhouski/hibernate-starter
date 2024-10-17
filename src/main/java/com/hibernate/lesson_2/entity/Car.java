@@ -1,24 +1,21 @@
-package com.hibernate.lesson2.entity;
+package com.hibernate.lesson_2.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Builder
 @Entity
+@Table(name="cars")
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="cars")
-
 public class Car {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private int year;
