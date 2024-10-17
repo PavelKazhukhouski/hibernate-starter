@@ -1,18 +1,4 @@
-package com.hibernate.lesson1;
-
-import com.hibernate.lesson1.entity.Genre;
-import org.junit.jupiter.api.Test;
-
-import javax.persistence.Column;
-import javax.persistence.Table;
-import java.lang.reflect.Field;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.Optional;
-import java.util.stream.Collectors;
+package com.hibernate.lesson_1;
 
 class HibernateRunnerTest {
 //    @Test

@@ -19,5 +19,6 @@
         <!-- Автоматическое создание/обновление схемы базы данных -->
         <property name="hbm2ddl.auto">update</property>
         <property name="current_session_context_class">thread</property>
+<!--        <mapping class="com/hibernate/lesson2/entity/Car.java"/>-->
     </session-factory>
 </hibernate-configuration>

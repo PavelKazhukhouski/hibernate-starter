@@ -1,4 +1,4 @@
-package com.hibernate.lesson2.entity;
+package com.hibernate.lesson_2.entity;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -6,7 +6,13 @@ import org.hibernate.cfg.Configuration;
 
 public class Main {
     public static void main(String[] args) {
-        Car car = new Car(2, "Mersedes", 2022, "red", 150_000, 240.0);
+        Car car = Car.builder()
+                .color("red")
+                .price(150_000)
+                .speed(240.0)
+                .name("Mersedes")
+                .build();
+
 
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")

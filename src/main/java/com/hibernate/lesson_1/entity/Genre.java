@@ -1,4 +1,4 @@
-package com.hibernate.lesson1.entity;
+package com.hibernate.lesson_1.entity;
 
 //@Data
 //@NoArgsConstructor
