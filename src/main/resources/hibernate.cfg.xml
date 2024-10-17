@@ -1,0 +1,29 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 5.3//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- URL для подключения к базе данных PostgreSQL -->
+        <property name="connection.url">jdbc:postgresql://localhost:5432/movies_db</property>
+
+        <!-- Драйвер JDBC для PostgreSQL -->
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+
+        <!-- Диалект для PostgreSQL -->
+        <property name="dialect">org.hibernate.dialect.PostgreSQL10Dialect</property>
+
+        <!-- Имя пользователя для подключения -->
+        <property name="connection.username">postgres</property>
+
+        <!-- Пароль для подключения -->
+        <property name="connection.password">postgres</property>
+
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
+
+<!--        &lt;!&ndash; Автоматическое создание/обновление схемы базы данных &ndash;&gt;-->
+<!--        <property name="hbm2ddl.auto">update</property>-->
+    </session-factory>
+</hibernate-configuration>
