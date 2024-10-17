@@ -1,4 +1,4 @@
-package com.hibernate.lesson_2.entity;
+package com.hibernate.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

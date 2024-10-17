@@ -1,5 +1,6 @@
-package com.hibernate.lesson_7;
+package com.hibernate;
 
+import com.hibernate.entity.Car;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

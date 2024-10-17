@@ -1,10 +1,11 @@
-package com.hibernate.lesson_2.entity;
+package com.hibernate;
 
+import com.hibernate.entity.Car;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class Main {
+public class lesson_2_4_6 {
     public static void main(String[] args) {
         Car car = Car.builder()
                 .color("black")
