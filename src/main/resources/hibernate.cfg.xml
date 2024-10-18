@@ -5,7 +5,7 @@
 <hibernate-configuration>
     <session-factory>
         <!-- URL для подключения к базе данных PostgreSQL -->
-        <property name="connection.url">jdbc:postgresql://localhost:5432/aducation_db</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/example_db</property>
         <!-- Драйвер JDBC для PostgreSQL -->
         <property name="connection.driver_class">org.postgresql.Driver</property>
         <!-- Диалект для PostgreSQL -->
@@ -19,6 +19,8 @@
         <!-- Автоматическое создание/обновление схемы базы данных -->
         <property name="hbm2ddl.auto">update</property>
         <property name="current_session_context_class">thread</property>
-<!--        <mapping class="com/hibernate/lesson2/entity/Car.java"/>-->
+
+        <mapping class="com.hibernate.one_to_one.entity.Car"/>
+        <mapping class="com.hibernate.one_to_one.entity.Engine"/>
     </session-factory>
 </hibernate-configuration>
