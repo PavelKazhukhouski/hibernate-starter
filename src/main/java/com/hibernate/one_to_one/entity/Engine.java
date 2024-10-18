@@ -24,4 +24,6 @@ public class Engine {
 
     @Column(name = "volume")
     private int volume;
+    @OneToOne(mappedBy = "engine", cascade = CascadeType.ALL)
+    private Car car;
 }
