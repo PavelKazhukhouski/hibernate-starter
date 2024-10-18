@@ -6,6 +6,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.util.List;
+
 public class Lesson_14 {
     public static void main(String[] args) {
         SessionFactory sessionFactory = new Configuration()
@@ -18,9 +20,16 @@ public class Lesson_14 {
         try {
             session = sessionFactory.getCurrentSession();
             session.beginTransaction();
-            Car car = session.get(Car.class, 2
-            );
-            System.out.println(car);
+
+            List<Car> cars = session.createQuery("from Car where name = 'Honda'").getResultList();
+            for (Car car : cars) {
+                System.out.println(car);
+            }
+
+            Car car1 = session.get(Car.class, 2);
+            System.out.println(car1);
+            session.delete(car1);
+
 
             session.getTransaction().commit();
         } catch (Exception e) {
