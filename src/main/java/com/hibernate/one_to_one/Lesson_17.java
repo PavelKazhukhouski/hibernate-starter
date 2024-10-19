@@ -6,7 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class Lesson_16 {
+public class Lesson_17 {
     public static void main(String[] args) {
         SessionFactory sessionFactory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -16,26 +16,14 @@ public class Lesson_16 {
 
         Session session = null;
         try {
-            Car car = Car.builder()
-                    .name("Subaru")
-                    .year(1999)
-                    .color("Blue")
-                    .price(1500)
-                    .speed(175)
-                    .build();
-            Engine engine = Engine.builder()
-                    .horsePower(350)
-                    .volume(300)
-                    .build();
             session = sessionFactory.getCurrentSession();
             session.beginTransaction();
-            car.setEngine(engine);
-            engine.setCar(car);
-            session.save(engine);
+            Engine engine = session.get(Engine.class, 10);
+            System.out.println(engine.getCar());
+            session.delete(engine);
 
             session.getTransaction().commit();
         } finally {
-            assert session != null;
             session.close();
             sessionFactory.close();
         }

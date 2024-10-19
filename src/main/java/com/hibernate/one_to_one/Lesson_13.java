@@ -21,7 +21,7 @@ public class Lesson_13 {
             session.beginTransaction();
 
             Car car = Car.builder()
-                    .name("Honda")
+                    .name("Opel")
                     .year(2022)
                     .color("white")
                     .price(25000)
@@ -33,7 +33,7 @@ public class Lesson_13 {
                     .volume(5000)
                     .build();
 
-            car.setEngine(engine);
+//            car.setEngine(engine);
             session.save(car);
             session.getTransaction().commit();
         } catch (Exception e) {

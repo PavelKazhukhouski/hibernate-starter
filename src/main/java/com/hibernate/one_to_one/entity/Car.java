@@ -1,9 +1,6 @@
 package com.hibernate.one_to_one.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -34,8 +31,8 @@ public class Car {
     @Column(name = "speed")
     private double speed;
 
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "engine_id")
+    @ToString.Exclude
     private Engine engine;
 }
