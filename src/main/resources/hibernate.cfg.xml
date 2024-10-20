@@ -20,7 +20,7 @@
         <property name="hbm2ddl.auto">update</property>
         <property name="current_session_context_class">thread</property>
 
-        <mapping class="com.hibernate.one_to_one.entity.Car"/>
-        <mapping class="com.hibernate.one_to_one.entity.Engine"/>
+        <mapping class="com.hibernate.lessons.one_to_one.entity.Car"/>
+        <mapping class="com.hibernate.lessons.one_to_one.entity.Engine"/>
     </session-factory>
 </hibernate-configuration>
