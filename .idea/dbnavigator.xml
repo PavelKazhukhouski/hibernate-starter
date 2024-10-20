@@ -42,10 +42,7 @@
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="bc53874f-ee35-4756-9fba-0d1b175c56ae" object-ref="schemas/public/tables/cars" />
-      <object connection-id="bc53874f-ee35-4756-9fba-0d1b175c56ae" object-ref="schemas/public/tables/engine" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="bc53874f-ee35-4756-9fba-0d1b175c56ae" />
@@ -57,9 +54,6 @@
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
-  </component>
-  <component name="DBNavigator.Project.FileConnectionMappingManager">
-    <mapping file-url="file://$PROJECT_DIR$/init.sql" connection-id="" session-id="MAIN" current-schema="" />
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />

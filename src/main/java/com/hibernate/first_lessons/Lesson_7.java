@@ -1,6 +1,7 @@
-package com.hibernate.first_lessons.lesson_1;
+package com.hibernate.first_lessons;
 
-import com.hibernate.first_lessons.lesson_1.entity.Car;
+
+import com.hibernate.first_lessons.entity.Car;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -16,14 +17,20 @@ public class Lesson_7 {
         try {
             Session session = factory.getCurrentSession();
             session.beginTransaction();
-            List<Car>  cars = session.createQuery("from Car where year = 2021").getResultList();
 
-            for (Car car : cars){
+//            List<Car> carList = session.createQuery("from Car").getResultList();
+//            List<Car> carList = session.createQuery("from Car where year=2022 and name='AUDI' ").getResultList();
+
+            List<Car> carList = session.createQuery("from Car where speed > 194 ").getResultList();
+
+            for (var car : carList) {
                 System.out.println(car);
             }
+
             session.getTransaction().commit();
-        }finally {
+        } finally {
             factory.close();
         }
+
     }
 }

@@ -1,30 +1,29 @@
-package com.hibernate.first_lessons.lesson_1;
+package com.hibernate.first_lessons;
 
-import com.hibernate.first_lessons.lesson_1.entity.Car;
+
+import com.hibernate.first_lessons.entity.Car;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-
 public class Lesson_10 {
     public static void main(String[] args) {
-        SessionFactory sessionFactory = new Configuration()
+        SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Car.class)
                 .buildSessionFactory();
-
         try {
-            Session session = sessionFactory.getCurrentSession();
+            Session session = factory.getCurrentSession();
             session.beginTransaction();
 
-//            Car car = session.get(Car.class, 6);
+//            Car car = session.get(Car.class, 3);
 //            session.delete(car);
 
-            session.createQuery("delete Car where color = 'black' ").executeUpdate();
+            session.createQuery("delete Car where color='green' ").executeUpdate();
 
             session.getTransaction().commit();
         } finally {
-            sessionFactory.close();
+            factory.close();
         }
 
     }

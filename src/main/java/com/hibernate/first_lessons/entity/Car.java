@@ -1,4 +1,6 @@
-package com.hibernate.one_to_one.entity;
+package com.hibernate.first_lessons.entity;
+
+
 
 import javax.persistence.*;
 
@@ -19,9 +21,6 @@ public class Car {
     private int price;
     @Column(name = "skorost")
     private double speed;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "engine_id")
-    private Engine carEngine;
 
     public Car() {
     }
@@ -82,14 +81,6 @@ public class Car {
         this.speed = speed;
     }
 
-    public Engine getCarEngine() {
-        return carEngine;
-    }
-
-    public void setCarEngine(Engine carEngine) {
-        this.carEngine = carEngine;
-    }
-
     @Override
     public String toString() {
         return "Car{" +
@@ -99,7 +90,6 @@ public class Car {
                ", color='" + color + '\'' +
                ", price=" + price +
                ", speed=" + speed +
-               ", carEngine=" + carEngine +
                '}';
     }
 }
