@@ -51,7 +51,7 @@ public class WebConfig implements WebMvcConfigurer {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
         sessionFactory.setPackagesToScan(
-                new String[]{"com.hibernate.project"});
+                new String[]{"com.hibernate.project.model"});
         sessionFactory.setHibernateProperties(hibernateProperties());
 
         return sessionFactory;
@@ -68,10 +68,11 @@ public class WebConfig implements WebMvcConfigurer {
 
     private final Properties hibernateProperties() {
         Properties properties = new Properties();
-        properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQL10Dialect"); // Укажите свой диалект
-        properties.put("hibernate.show_sql", "true"); // Для отображения SQL-запросов в логах
-        properties.put("format_sql", "true"); // Для отображения SQL-запросов в логах
-        properties.put("hibernate.hbm2ddl.auto", "update"); // Для автоматического обновления схемы
+        properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQL10Dialect");
+        properties.put("hibernate.show_sql", "true");
+        properties.put("format_sql", "true");
+        properties.put("hibernate.hbm2ddl.auto", "update");
+
         return properties;
     }
 
