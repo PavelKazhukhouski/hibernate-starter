@@ -37,6 +37,16 @@ public class WebConfig implements WebMvcConfigurer {
     private Environment env;
 
     @Bean
+    public DataSource dataSource() {
+        HikariDataSource ds = new HikariDataSource();
+        ds.setJdbcUrl(dbHost);
+        ds.setUsername(dbUsername);
+        ds.setPassword(dbPassword);
+        ds.setDriverClassName(driverClassName);
+        return ds;
+    }
+
+    @Bean
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
@@ -47,16 +57,6 @@ public class WebConfig implements WebMvcConfigurer {
         return sessionFactory;
     }
 
-
-    @Bean
-    public DataSource dataSource() {
-        HikariDataSource ds = new HikariDataSource();
-        ds.setJdbcUrl(dbHost);
-        ds.setUsername(dbUsername);
-        ds.setPassword(dbPassword);
-        ds.setDriverClassName(driverClassName);
-        return ds;
-    }
 
     @Bean
     public PlatformTransactionManager hibernateTransactionManager() {
