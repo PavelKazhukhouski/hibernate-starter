@@ -25,24 +25,16 @@ import java.util.Properties;
 @PropertySource("classpath:application.properties")
 public class WebConfig implements WebMvcConfigurer {
 
-    @Value("${db.host}")
-    private String dbHost;
-    @Value("${db.username}")
-    private String dbUsername;
-    @Value("${db.password}")
-    private String dbPassword;
-    @Value("${db.driver}")
-    private String driverClassName;
     @Autowired
     private Environment env;
 
     @Bean
     public DataSource dataSource() {
         HikariDataSource ds = new HikariDataSource();
-        ds.setJdbcUrl(dbHost);
-        ds.setUsername(dbUsername);
-        ds.setPassword(dbPassword);
-        ds.setDriverClassName(driverClassName);
+        ds.setJdbcUrl(env.getProperty("db.url"));
+        ds.setUsername(env.getProperty("db.username"));
+        ds.setPassword(env.getProperty("db.password"));
+        ds.setDriverClassName(env.getProperty("db.driver"));
         return ds;
     }
 
@@ -50,40 +42,25 @@ public class WebConfig implements WebMvcConfigurer {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(
-                new String[]{"com.hibernate.project.model"});
+        sessionFactory.setPackagesToScan("com.hibernate.project.model");
         sessionFactory.setHibernateProperties(hibernateProperties());
 
         return sessionFactory;
     }
 
-
     @Bean
     public PlatformTransactionManager hibernateTransactionManager() {
-        HibernateTransactionManager transactionManager
-                = new HibernateTransactionManager();
+        HibernateTransactionManager transactionManager = new HibernateTransactionManager();
         transactionManager.setSessionFactory(sessionFactory().getObject());
         return transactionManager;
     }
 
     private final Properties hibernateProperties() {
-        Properties properties = new Properties();
-        properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQL10Dialect");
-        properties.put("hibernate.show_sql", "true");
-        properties.put("format_sql", "true");
-        properties.put("hibernate.hbm2ddl.auto", "update");
-
-        return properties;
+        Properties hibernateProperties = new Properties();
+        hibernateProperties.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
+        hibernateProperties.setProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
+        hibernateProperties.setProperty("hibernate.format_sql", env.getProperty("hibernate.format_sql"));
+        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
+        return hibernateProperties;
     }
-
-//    private final Properties hibernateProperties() {
-//        Properties hibernateProperties = new Properties();
-//        hibernateProperties.setProperty(
-//                "hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
-//        hibernateProperties.setProperty(
-//                "hibernate.dialect", env.getProperty("hibernate.dialect"));
-//        return hibernateProperties;
-//    }
-
-
 }

@@ -1,6 +1,6 @@
 package com.hibernate.lessons.one_to_one.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "cars")

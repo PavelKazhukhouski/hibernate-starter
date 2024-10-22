@@ -1,6 +1,6 @@
 package com.hibernate.lessons.many_to_many.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 

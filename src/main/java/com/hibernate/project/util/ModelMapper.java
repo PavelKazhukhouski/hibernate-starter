@@ -2,9 +2,7 @@ package com.hibernate.project.util;
 
 
 import com.hibernate.project.dto.GenreDto;
-import com.hibernate.project.dto.MovieDto;
 import com.hibernate.project.model.Genre;
-import com.hibernate.project.model.Movie;
 
 public class ModelMapper {
 
@@ -24,30 +22,30 @@ public class ModelMapper {
                     .build();
         }
 
-    public static MovieDto toMovieDto(Movie movie) {
-        return MovieDto.builder()
-                .id(movie.getId())
-                .tmdbId(movie.getTmdbId())
-                .name(movie.getName())
-                .genreId(movie.getGenreId())
-                .releaseDate(movie.getReleaseDate())
-                .rating(movie.getRating())
-                .overview(movie.getOverview())
-                .originalLanguage(movie.getOriginalLanguage())
-                .build();
-    }
-
-    public static Movie toMovie(MovieDto movieDto) {
-        return Movie.builder()
-                .id(movieDto.getId())
-                .tmdbId(movieDto.getTmdbId())
-                .name(movieDto.getName())
-                .genreId(movieDto.getGenreId())
-                .releaseDate(movieDto.getReleaseDate())
-                .rating(movieDto.getRating())
-                .overview(movieDto.getOverview())
-                .originalLanguage(movieDto.getOriginalLanguage())
-                .build();
-    }
+//    public static MovieDto toMovieDto(Movie movie) {
+//        return MovieDto.builder()
+//                .id(movie.getId())
+//                .tmdbId(movie.getTmdbId())
+//                .name(movie.getName())
+//                .genreId(movie.getGenreId())
+//                .releaseDate(movie.getReleaseDate())
+//                .rating(movie.getRating())
+//                .overview(movie.getOverview())
+//                .originalLanguage(movie.getOriginalLanguage())
+//                .build();
+//    }
+//
+//    public static Movie toMovie(MovieDto movieDto) {
+//        return Movie.builder()
+//                .id(movieDto.getId())
+//                .tmdbId(movieDto.getTmdbId())
+//                .name(movieDto.getName())
+//                .genreId(movieDto.getGenreId())
+//                .releaseDate(movieDto.getReleaseDate())
+//                .rating(movieDto.getRating())
+//                .overview(movieDto.getOverview())
+//                .originalLanguage(movieDto.getOriginalLanguage())
+//                .build();
+//    }
 
 }
